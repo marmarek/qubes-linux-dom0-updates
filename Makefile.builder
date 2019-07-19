@@ -3,7 +3,7 @@ XORG_DRIVERS_FROM_FC28 := \
     xorg-x11-drv-ati-18.0.1-1.fc28.src.rpm
 
 ifeq ($(shell expr $(subst fc,,$(DIST)) \<= 27 2>/dev/null),1)
-    RPM_SRC_PACKAGES.dom0 := $(XORG_DRIVERS_FROM_FC28)
+    RPM_SRC_PACKAGES.dom0 := $(XORG_DRIVERS_FROM_FC28:%.fc28.src.rpm=%.$(DIST).src.rpm)
     RPM_SPEC_FILES.dom0 := xorg-x11-drv-nouveau.spec
 endif
 
